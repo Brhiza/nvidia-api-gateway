@@ -1,0 +1,21 @@
+{
+  "api_keys": [],
+  "master_keys": [],
+  "system_config": {
+    "upstream_base_url": "https://integrate.api.nvidia.com/v1",
+    "scheduler_strategy": "weighted_round_robin",
+    "max_retries": 5,
+    "max_concurrency": 3,
+    "request_timeout_second": 600,
+    "upstream_proxy_url": "",
+    "enable_openai": true,
+    "enable_claude": true,
+    "enable_gemini": true,
+    "anonymous_access": false,
+    "first_byte_timeout_ms": 90000,
+    "health_probe_timeout_second": 45
+  },
+  "next_api_id": 1,
+  "next_proxy_id": 1,
+  "next_master_key_id": 1
+}
