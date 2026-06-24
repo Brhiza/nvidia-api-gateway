@@ -111,101 +111,16 @@ type freeProxyImportHooks struct {
 	OnPersistProgress func(done, total, imported, updated, matchedManual int)
 }
 
-var freeProxyHTTPSourcesTXT = []string{
-	"https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
-	"https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
-	"https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/anonymous/http.txt",
-	"https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
-	"https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/http.txt",
-	"https://raw.githubusercontent.com/iplocate/free-proxy-list/main/protocols/http.txt",
-	"https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=5000",
-	"https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&proxy_type=http",
-	"https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
-	"https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt",
-	"https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt",
-	"https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt",
-	"https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
-	"https://raw.githubusercontent.com/prxchk/proxy-list/main/http.txt",
-	"https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt",
-	"https://raw.githubusercontent.com/zloi-user/hideip.me/main/http.txt",
-	"https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt",
-	"https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt",
-	"https://api.openproxylist.xyz/http.txt",
-	"https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/http.txt",
-	"https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/HTTP.txt",
-	"https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/http.txt",
-	"https://raw.githubusercontent.com/yemixzy/proxy-list/main/proxies/http.txt",
-	"https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/http.txt",
-	"https://raw.githubusercontent.com/officialputuid/KangProxy/KangProxy/http/http.txt",
-	"https://raw.githubusercontent.com/caliphdev/Proxy-List/master/http.txt",
-	"https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/proxy_files/http_proxies.txt",
-	"https://raw.githubusercontent.com/zevtyardt/proxy-list/main/http.txt",
-	"https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/http.txt",
-	"https://raw.githubusercontent.com/rx443/proxy-list/main/online/http.txt",
-	"https://raw.githubusercontent.com/saisuiu/Lionkings-Http-Proxys-Proxies/main/free.txt",
-	"https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/http.txt",
-	"https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt",
-	"https://raw.githubusercontent.com/HyperBeats/proxy-list/main/http.txt",
-	"https://proxyspace.pro/http.txt",
-	"https://proxyspace.pro/https.txt",
-	"https://www.proxy-list.download/api/v1/get?type=http",
-	"https://www.proxy-list.download/api/v1/get?type=https",
-	"https://multiproxy.org/txt_all/proxy.txt",
-	"https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt",
-}
+var freeProxyHTTPSourcesTXT = []string{}
 
 var freeProxyHTTPSourcesJSON = []string{
-	"https://raw.githubusercontent.com/EDT-Pages/Proxy-List/main/data/http.json",
-	"https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/http.json",
-	"https://proxylist.geonode.com/api/proxy-list?protocols=http,https&limit=500&page=1&sort_by=lastChecked&sort_type=desc",
-	"https://proxylist.geonode.com/api/proxy-list?protocols=http,https&limit=500&page=2&sort_by=lastChecked&sort_type=desc",
-	"https://www.proxyscan.io/api/proxy?type=http&format=json&limit=100",
-	"http://pubproxy.com/api/proxy?format=json&type=http&limit=20",
+	models.DefaultGoProxyPublicAPIURL,
 }
 
-var freeProxySOCKS5SourcesTXT = []string{
-	"https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
-	"https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks5.txt",
-	"https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/anonymous/socks5.txt",
-	"https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
-	"https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/socks5.txt",
-	"https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
-	"https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5_RAW.txt",
-	"https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks5.txt",
-	"https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt",
-	"https://raw.githubusercontent.com/prxchk/proxy-list/main/socks5.txt",
-	"https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks5.txt",
-	"https://raw.githubusercontent.com/zloi-user/hideip.me/main/socks5.txt",
-	"https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/socks5.txt",
-	"https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=5000",
-	"https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&proxy_type=socks5",
-	"https://api.openproxylist.xyz/socks5.txt",
-	"https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/socks5.txt",
-	"https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/SOCKS5.txt",
-	"https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/socks5.txt",
-	"https://raw.githubusercontent.com/yemixzy/proxy-list/main/proxies/socks5.txt",
-	"https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/socks5.txt",
-	"https://raw.githubusercontent.com/officialputuid/KangProxy/KangProxy/socks5/socks5.txt",
-	"https://raw.githubusercontent.com/zevtyardt/proxy-list/main/socks5.txt",
-	"https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/socks5.txt",
-	"https://raw.githubusercontent.com/rx443/proxy-list/main/online/socks5.txt",
-	"https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/socks5.txt",
-	"https://raw.githubusercontent.com/caliphdev/Proxy-List/master/socks5.txt",
-	"https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/proxy_files/socks5_proxies.txt",
-	"https://raw.githubusercontent.com/HyperBeats/proxy-list/main/socks5.txt",
-	"https://proxyspace.pro/socks5.txt",
-	"https://www.proxy-list.download/api/v1/get?type=socks5",
-	"https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt",
-	"https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/socks5.txt",
-	"https://raw.githubusercontent.com/manuGMG/proxy-365/main/SOCKS5.txt",
-}
+var freeProxySOCKS5SourcesTXT = []string{}
 
 var freeProxySOCKS5SourcesJSON = []string{
-	"https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/socks5.json",
-	"https://proxylist.geonode.com/api/proxy-list?protocols=socks5&limit=500&page=1&sort_by=lastChecked&sort_type=desc",
-	"https://proxylist.geonode.com/api/proxy-list?protocols=socks5&limit=500&page=2&sort_by=lastChecked&sort_type=desc",
-	"https://www.proxyscan.io/api/proxy?type=socks5&format=json&limit=100",
-	"http://pubproxy.com/api/proxy?format=json&type=socks5&limit=20",
+	models.DefaultGoProxyPublicAPIURL,
 }
 
 var freeProxySourceHTTPClient = &http.Client{Timeout: 15 * time.Second}
@@ -529,16 +444,57 @@ func collectFreeProxyCandidates(payload any, proxyType string) []freeProxyCandid
 }
 
 func freeProxyCandidateFromMap(value map[string]any, proxyType string) (freeProxyCandidate, bool) {
-	country := firstJSONString(value, "country", "country_code", "countryCode")
-	if proxy := firstJSONString(value, "proxy", "ip_port", "ipPort"); proxy != "" {
-		return buildFreeProxyCandidate(proxyType, proxy, country)
+	country := firstJSONString(value, "country", "country_code", "countryCode", "exit_location", "exitLocation")
+	candidateType, hasExplicitType := inferFreeProxyCandidateType(value, proxyType)
+	if hasExplicitType && !freeProxyTypeMatches(proxyType, candidateType) {
+		return freeProxyCandidate{}, false
 	}
-	ip := firstJSONString(value, "ip", "host")
+	if proxy := firstJSONString(value, "proxy", "ip_port", "ipPort", "address", "addr", "url"); proxy != "" {
+		return buildFreeProxyCandidate(candidateType, proxy, country)
+	}
+	ip := firstJSONString(value, "ip", "host", "hostname")
 	port := firstJSONPort(value, "port")
 	if ip != "" && port > 0 {
-		return freeProxyCandidate{Type: proxyType, Host: ip, Port: port, Country: strings.ToUpper(strings.TrimSpace(country))}, true
+		return freeProxyCandidate{Type: candidateType, Host: ip, Port: port, Country: strings.ToUpper(strings.TrimSpace(country))}, true
 	}
 	return freeProxyCandidate{}, false
+}
+
+func inferFreeProxyCandidateType(value map[string]any, fallback string) (string, bool) {
+	if protocol := normalizeFreeProxyCandidateType(firstJSONString(value, "protocol", "type", "scheme")); protocol != "" {
+		return protocol, true
+	}
+	for _, key := range []string{"proxy", "ip_port", "ipPort", "address", "addr", "url"} {
+		raw := firstJSONString(value, key)
+		if !strings.Contains(raw, "://") {
+			continue
+		}
+		parsed, err := url.Parse(raw)
+		if err != nil {
+			continue
+		}
+		if protocol := normalizeFreeProxyCandidateType(parsed.Scheme); protocol != "" {
+			return protocol, true
+		}
+	}
+	return normalizeFreeProxyCandidateType(fallback), false
+}
+
+func normalizeFreeProxyCandidateType(value string) string {
+	switch strings.ToLower(strings.TrimSpace(value)) {
+	case "http", "https":
+		return "http"
+	case "socks", "socks5", "socks5h":
+		return "socks5h"
+	default:
+		return ""
+	}
+}
+
+func freeProxyTypeMatches(expected, actual string) bool {
+	expected = normalizeFreeProxyCandidateType(expected)
+	actual = normalizeFreeProxyCandidateType(actual)
+	return expected == "" || actual == "" || expected == actual
 }
 
 func firstJSONString(value map[string]any, keys ...string) string {
@@ -940,28 +896,8 @@ func parseFreeProxyHTMLBody(body string, proxyType string) []freeProxyCandidate 
 	return items
 }
 
-var freeProxyHTTPSourcesHTML = []string{
-	"https://free-proxy-list.net/",
-	"https://www.sslproxies.org/",
-	"https://www.us-proxy.org/",
-	"https://proxydb.net/?protocol=http",
-	"https://www.proxynova.com/proxy-server-list/",
-	"https://openproxy.space/list/http",
-	"https://hidemy.name/en/proxy-list/",
-	"https://www.freeproxy.world/",
-	"https://www.89ip.cn/",
-	"https://www.ip3366.net/free/",
-	"https://www.kuaidaili.com/free/",
-	"https://www.zdaye.com/free/",
-	"https://www.kxdaili.com/dailiip.html",
-	"https://www.proxy-list.download/HTTP",
-	"https://spys.me/proxy.txt",
-}
+var freeProxyHTTPSourcesHTML = []string{}
 
-var freeProxySOCKS5SourcesHTML = []string{
-	"https://openproxy.space/list/socks5",
-	"https://www.proxy-list.download/SOCKS5",
-	"https://spys.me/socks.txt",
-}
+var freeProxySOCKS5SourcesHTML = []string{}
 
 var freeProxyHTMLPairPattern = regexp.MustCompile(`(?s)(?:<td[^>]*>\s*|\b)((?:\d{1,3}\.){3}\d{1,3})(?:\s*</td>\s*<td[^>]*>|:|\s+)(\d{2,5})`)

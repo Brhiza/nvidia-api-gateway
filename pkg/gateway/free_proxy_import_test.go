@@ -55,6 +55,37 @@ func TestUpsertImportedFreeProxyKeepsManualEntry(t *testing.T) {
 	}
 }
 
+func TestParseFreeProxyJSONBodySupportsGoProxyPayload(t *testing.T) {
+	body := []byte(`{
+		"proxies": [
+			{"protocol": "http", "address": "1.2.3.4:8080", "exit_location": "US California", "latency": 120},
+			{"protocol": "socks5", "address": "socks5://5.6.7.8:1080", "exit_location": "SG", "latency": 90}
+		]
+	}`)
+
+	httpItems, err := parseFreeProxyJSONBody(body, "http")
+	if err != nil {
+		t.Fatalf("parse http GoProxy payload: %v", err)
+	}
+	if len(httpItems) != 1 {
+		t.Fatalf("http item count = %d, want 1: %#v", len(httpItems), httpItems)
+	}
+	if httpItems[0].Type != "http" || httpItems[0].Host != "1.2.3.4" || httpItems[0].Port != 8080 {
+		t.Fatalf("unexpected http candidate: %#v", httpItems[0])
+	}
+
+	socksItems, err := parseFreeProxyJSONBody(body, "socks5h")
+	if err != nil {
+		t.Fatalf("parse socks GoProxy payload: %v", err)
+	}
+	if len(socksItems) != 1 {
+		t.Fatalf("socks item count = %d, want 1: %#v", len(socksItems), socksItems)
+	}
+	if socksItems[0].Type != "socks5h" || socksItems[0].Host != "5.6.7.8" || socksItems[0].Port != 1080 {
+		t.Fatalf("unexpected socks candidate: %#v", socksItems[0])
+	}
+}
+
 func TestUpsertImportedFreeProxyRefreshesAutoEntry(t *testing.T) {
 	now := time.Unix(300, 0)
 	store := &db.Store{
