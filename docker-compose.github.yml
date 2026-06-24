@@ -1,0 +1,28 @@
+services:
+  gateway:
+    image: ${GITHUB_IMAGE:-ghcr.io/brhiza/nvidia-api-gateway:latest}
+    container_name: nvidia-api-gateway
+    restart: unless-stopped
+    environment:
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-12345678901234567890123456789012}
+      PORT: 18080
+      BACKEND_PORT: 18080
+      FRONTEND_PORT: 14000
+      API_BASE_URL: http://127.0.0.1:18080
+      GATEWAY_DATA_DIR: /app/var/data
+      XRAY_CORE_DIR: /app/bin/xray
+      XRAY_BIN_PATH: /app/bin/xray/xray
+      XRAY_LOG_LEVEL: ${XRAY_LOG_LEVEL:-error}
+      XRAY_VERSION: ${XRAY_VERSION:-v26.3.27}
+    ports:
+      - "${BACKEND_PORT:-18080}:18080"
+      - "${FRONTEND_PORT:-14000}:14000"
+    volumes:
+      - gateway_data:/app/var/data
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  gateway_data:
